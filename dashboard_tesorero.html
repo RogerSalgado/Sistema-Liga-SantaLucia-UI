@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Tesorero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-white py-3 border-bottom shadow-sm position-relative">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="img/liga.jpg" alt="Logo Liga" style="height: 50px; margin-right: 15px;" />
+        <h4 class="text-primary m-0">Dashboard Tesorero</h4>
+      </div>
+      <a href="index.html" class="btn btn-outline-danger btn-sm">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 bg-light sidebar py-4">
+        <ul class="nav flex-column px-2">
+          <li class="nav-item">
+            <a class="nav-link active text-primary" href="#">Estado de cuenta por equipo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#">Estado de cuenta general</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#">Registrar pago</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="#">Balance de ingresos</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <main class="col-md-10 py-4">
+        <div class="container">
+          <h5 class="text-primary mb-4">Estado de cuenta general</h5>
+
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead class="table-primary">
+                <tr>
+                  <th>Equipo</th>
+                  <th>Último pago</th>
+                  <th>Monto</th>
+                  <th>Saldo pendiente</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Zelaya</td>
+                  <td>10/07/2025</td>
+                  <td>L 1,500.00</td>
+                  <td>L 500.00</td>
+                  <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                </tr>
+                <tr>
+                  <td>Fraternidad</td>
+                  <td>05/07/2025</td>
+                  <td>L 2,000.00</td>
+                  <td>L 0.00</td>
+                  <td><span class="badge bg-success">Al día</span></td>
+                </tr>
+                <tr>
+                  <td>Leones</td>
+                  <td>01/07/2025</td>
+                  <td>L 1,000.00</td>
+                  <td>L 1,000.00</td>
+                  <td><span class="badge bg-danger">Mora</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

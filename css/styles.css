@@ -1,0 +1,31 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.text-primary {
+  color: #1d4872 !important;
+}
+
+.btn-outline-primary {
+  border-color: #1d4872;
+  color: #1d4872;
+}
+
+.btn-outline-primary:hover {
+  background-color: #1d4872;
+  color: white;
+}
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 200px;
+  padding-top: 20px;
+}
+
+main {
+  margin-left: 200px;
+}
+
