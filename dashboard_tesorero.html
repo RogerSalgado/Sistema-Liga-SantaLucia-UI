@@ -2,92 +2,201 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Dashboard - Tesorero</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Tesorero</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    aside {
+      width: 220px;
+      background-color: #063970;
+      color: white;
+      min-height: 100vh;
+      padding-top: 20px;
+    }
+
+    aside h2 {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    aside ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    aside ul li {
+      padding: 15px 20px;
+      cursor: pointer;
+    }
+
+    aside ul li:hover,
+    aside ul li.active {
+      background-color: #0a4c95;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 30px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logout-btn {
+      border: 1px solid red;
+      background-color: white;
+      color: red;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #063970;
+      color: white;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: white;
+    }
+
+    .pendiente { background-color: orange; }
+    .aldia { background-color: green; }
+    .mora { background-color: crimson; }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="bg-white py-3 border-bottom shadow-sm position-relative">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center">
-        <img src="img/liga.jpg" alt="Logo Liga" style="height: 50px; margin-right: 15px;" />
-        <h4 class="text-primary m-0">Dashboard Tesorero</h4>
+  <aside>
+    <h2>Dashboard</h2>
+    <ul id="menu">
+      <li class="active" onclick="mostrar('estado-general')">Estado de cuenta general</li>
+      <li onclick="mostrar('estado-equipo')">Estado por equipo</li>
+      <li onclick="mostrar('registrar')">Registrar pago</li>
+      <li onclick="mostrar('balance')">Balance de ingresos</li>
+    </ul>
+  </aside>
+
+  <main>
+    <header>
+      <h1>Dashboard Tesorero</h1>
+      <button class="logout-btn" onclick="cerrarSesion()">Cerrar sesión</button>
+    </header>
+
+    <section id="estado-general" class="active">
+      <div class="card">
+        <h2>Estado de cuenta general</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Equipo</th>
+              <th>Último pago</th>
+              <th>Monto</th>
+              <th>Saldo pendiente</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zelaya</td>
+              <td>10/07/2025</td>
+              <td>L 1,500.00</td>
+              <td>L 500.00</td>
+              <td><span class="badge pendiente">Pendiente</span></td>
+            </tr>
+            <tr>
+              <td>Fraternidad</td>
+              <td>05/07/2025</td>
+              <td>L 2,000.00</td>
+              <td>L 0.00</td>
+              <td><span class="badge aldia">Al día</span></td>
+            </tr>
+            <tr>
+              <td>Leones</td>
+              <td>01/07/2025</td>
+              <td>L 1,000.00</td>
+              <td>L 1,000.00</td>
+              <td><span class="badge mora">Mora</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <a href="index.html" class="btn btn-outline-danger btn-sm">Cerrar sesión</a>
-    </div>
-  </header>
+    </section>
 
-  <!-- Layout -->
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-      <nav class="col-md-2 bg-light sidebar py-4">
-        <ul class="nav flex-column px-2">
-          <li class="nav-item">
-            <a class="nav-link active text-primary" href="#">Estado de cuenta por equipo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="#">Estado de cuenta general</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="#">Registrar pago</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="#">Balance de ingresos</a>
-          </li>
-        </ul>
-      </nav>
+    <section id="estado-equipo">
+      <div class="card">
+        <h2>Estado de cuenta por equipo</h2>
+        <p>[Aquí puedes colocar la información detallada por equipo]</p>
+      </div>
+    </section>
 
-      <!-- Main -->
-      <main class="col-md-10 py-4">
-        <div class="container">
-          <h5 class="text-primary mb-4">Estado de cuenta general</h5>
+    <section id="registrar">
+      <div class="card">
+        <h2>Registrar pago</h2>
+        <p>[Aquí estará el formulario de registro de pagos]</p>
+      </div>
+    </section>
 
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-              <thead class="table-primary">
-                <tr>
-                  <th>Equipo</th>
-                  <th>Último pago</th>
-                  <th>Monto</th>
-                  <th>Saldo pendiente</th>
-                  <th>Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Zelaya</td>
-                  <td>10/07/2025</td>
-                  <td>L 1,500.00</td>
-                  <td>L 500.00</td>
-                  <td><span class="badge bg-warning text-dark">Pendiente</span></td>
-                </tr>
-                <tr>
-                  <td>Fraternidad</td>
-                  <td>05/07/2025</td>
-                  <td>L 2,000.00</td>
-                  <td>L 0.00</td>
-                  <td><span class="badge bg-success">Al día</span></td>
-                </tr>
-                <tr>
-                  <td>Leones</td>
-                  <td>01/07/2025</td>
-                  <td>L 1,000.00</td>
-                  <td>L 1,000.00</td>
-                  <td><span class="badge bg-danger">Mora</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <section id="balance">
+      <div class="card">
+        <h2>Balance de ingresos</h2>
+        <p>[Aquí puedes mostrar un gráfico o resumen de ingresos]</p>
+      </div>
+    </section>
+  </main>
 
-        </div>
-      </main>
-    </div>
-  </div>
+  <script>
+    function mostrar(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.querySelector(`#${id}`).classList.add('active');
+      document.querySelectorAll('#menu li').forEach(li => li.classList.remove('active'));
+      event.target.classList.add('active');
+    }
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    function cerrarSesion() {
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>
