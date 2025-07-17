@@ -1,10 +1,20 @@
-// Usuarios simulados
+// Lista simulada de usuarios registrados
 const usuarios = [
-  { usuario: "rep_cdz", clave: "1234", rol: "representante" },
-  { usuario: "rep_spartanos", clave: "1234", rol: "representante" },
-  { usuario: "rep_jvsl", clave: "1234", rol: "representante" },
-  { usuario: "rep_estanzuela", clave: "1234", rol: "representante" },
-  { usuario: "tesorero", clave: "admin2025", rol: "tesorero" },
-  { usuario: "disciplina", clave: "comite2025", rol: "disciplina" },
-  { usuario: "directivo", clave: "liga2025", rol: "directiva" }
+  {
+    usuario: "zelaya",
+    contrasena: "1234",
+    rol: "representante",
+    equipo: "Zelaya"
+  },
+  {
+    usuario: "leones",
+    contrasena: "1234",
+    rol: "representante",
+    equipo: "Leones"
+  },
+  {
+    usuario: "tesorero",
+    contrasena: "admin",
+    rol: "tesorero"
+  }
 ];

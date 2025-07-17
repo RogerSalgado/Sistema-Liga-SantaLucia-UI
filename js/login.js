@@ -1,31 +1,21 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+function iniciarSesion() {
+  const usuarioInput = document.getElementById("usuario").value.trim();
+  const contrasenaInput = document.getElementById("contrasena").value.trim();
+  const mensajeError = document.getElementById("mensajeError");
 
-  const user = document.getElementById("username").value.trim().toLowerCase();
-  const pass = document.getElementById("password").value.trim();
+  const usuarioEncontrado = usuarios.find(
+    (u) => u.usuario === usuarioInput && u.contrasena === contrasenaInput
+  );
 
-  const encontrado = usuarios.find(u => u.usuario === user && u.clave === pass);
+  if (usuarioEncontrado) {
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
 
-  if (!encontrado) {
-    alert("Usuario o contraseña incorrectos");
-    return;
-  }
-
-  // Redireccionar por rol
-  switch (encontrado.rol) {
-    case "representante":
+    if (usuarioEncontrado.rol === "representante") {
       window.location.href = "dashboard_representante.html";
-      break;
-    case "tesorero":
+    } else if (usuarioEncontrado.rol === "tesorero") {
       window.location.href = "dashboard_tesorero.html";
-      break;
-    case "disciplina":
-      window.location.href = "dashboard_comite.html";
-      break;
-    case "directiva":
-      window.location.href = "dashboard_directiva.html";
-      break;
-    default:
-      alert("Rol no reconocido");
+    }
+  } else {
+    mensajeError.style.display = "block";
   }
-});
+}
