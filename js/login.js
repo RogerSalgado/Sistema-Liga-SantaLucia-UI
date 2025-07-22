@@ -1,21 +1,25 @@
-function iniciarSesion() {
-  const usuarioInput = document.getElementById("usuario").value.trim();
-  const contrasenaInput = document.getElementById("contrasena").value.trim();
+document.addEventListener("DOMContentLoaded", () => {
+  const btnLogin = document.getElementById("btnLogin");
   const mensajeError = document.getElementById("mensajeError");
 
-  const usuarioEncontrado = usuarios.find(
-    (u) => u.usuario === usuarioInput && u.contrasena === contrasenaInput
-  );
+  btnLogin.addEventListener("click", () => {
+    const usuarioInput = document.getElementById("usuario").value.trim();
+    const contrasenaInput = document.getElementById("contrasena").value.trim();
 
-  if (usuarioEncontrado) {
-    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+    const usuarioEncontrado = usuarios.find(
+      (u) => u.usuario === usuarioInput && u.contrasena === contrasenaInput
+    );
 
-    if (usuarioEncontrado.rol === "representante") {
-      window.location.href = "dashboard_representante.html";
-    } else if (usuarioEncontrado.rol === "tesorero") {
-      window.location.href = "dashboard_tesorero.html";
+    if (usuarioEncontrado) {
+      localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+
+      if (usuarioEncontrado.rol === "representante") {
+        window.location.href = "dashboard_representante.html";
+      } else if (usuarioEncontrado.rol === "tesorero") {
+        window.location.href = "dashboard_tesorero.html";
+      }
+    } else {
+      mensajeError.style.display = "block";
     }
-  } else {
-    mensajeError.style.display = "block";
-  }
-}
+  });
+});

@@ -1,4 +1,4 @@
-// Lista simulada de usuarios registrados
+// Lista simulada de usuarios y equipos para pruebas
 const usuarios = [
   {
     usuario: "zelaya",
@@ -13,8 +13,20 @@ const usuarios = [
     equipo: "Leones"
   },
   {
+    usuario: "fraternidad",
+    contrasena: "1234",
+    rol: "representante",
+    equipo: "Fraternidad"
+  },
+  {
+    usuario: "atlas",
+    contrasena: "1234",
+    rol: "representante",
+    equipo: "Atlas"
+  },
+  {
     usuario: "tesorero",
-    contrasena: "admin",
+    contrasena: "admin2025",
     rol: "tesorero"
   }
 ];
